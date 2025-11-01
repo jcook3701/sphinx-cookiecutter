@@ -1,4 +1,3 @@
-# coding: utf-8
 """Sphinx Cookiecutter Project
 
 © All rights reserved. Jared Cook
@@ -6,8 +5,8 @@
 See the LICENSE.TXT file for more details.
 
 Author: Jared Cook
-Description: 
 """
+
 
 def test_bake_with_defaults(cookies):
     """Ensure the template bakes correctly with default context."""

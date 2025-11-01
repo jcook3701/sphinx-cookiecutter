@@ -18,8 +18,8 @@ def test_bake_with_defaults(cookies):
     # Optional sanity checks
     project_name = result.project_path.name
     assert project_name  # non-empty
-    readme_file = result.project_path / "README.md"
-    assert readme_file.exists()
+    index_file = result.project_path / "index.rst"
+    assert index_file.exists()
 
 def test_bake_with_custom_name(cookies):
     """Ensure custom project_name works."""

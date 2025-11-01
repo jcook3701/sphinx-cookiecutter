@@ -89,11 +89,11 @@ install: venv
 # --------------------------------------------------
 ruff-lint-check:
 	@echo "🔍 Running ruff linting..."
-	$(RUFF) check $(HOOKS_DIR) $(TESTS_DIR)
+	$(RUFF) check $(TESTS_DIR)
 
 ruff-lint-fix:
 	@echo "🎨 Running ruff lint fixes..."
-	$(RUFF) check --fix --show-files -v $(HOOKS_DIR) $(TESTS_DIR)
+	$(RUFF) check --fix --show-files -v $(TESTS_DIR)
 
 yaml-lint-check:
 	@echo "🔍 Running yamllint..."
@@ -164,7 +164,7 @@ clean:
 # Help
 # --------------------------------------------------
 help:
-	@echo "📦 homelab Makefile"
+	@echo "📦 sphinx-cookiecutter Makefile"
 	@echo ""
 	@echo "Usage:"
 	@echo "  make venv                   Create virtual environment"

@@ -89,11 +89,12 @@ install: venv
 # --------------------------------------------------
 ruff-lint-check:
 	@echo "🔍 Running ruff linting..."
-	$(RUFF) check $(HOOKS_DIR) $(TESTS_DIR)
+	$(RUFF) check $(TESTS_DIR)
 
 ruff-lint-fix:
 	@echo "🎨 Running ruff lint fixes..."
-	$(RUFF) check --fix --show-files -v $(HOOKS_DIR) $(TESTS_DIR)
+	$(RUFF) check --show-files $(TESTS_DIR)
+	$(RUFF) check --fix $(TESTS_DIR)
 
 yaml-lint-check:
 	@echo "🔍 Running yamllint..."
@@ -124,7 +125,7 @@ lint-check: ruff-lint-check yaml-lint-check jinja2-lint-check
 # --------------------------------------------------
 typecheck:
 	@echo "🧠 Checking types (MyPy)..."
-	$(MYPY) $(HOOKS_DIR)
+	$(MYPY) $(TESTS_DIR)
 
 # --------------------------------------------------
 # Testing (pytest)
@@ -164,7 +165,7 @@ clean:
 # Help
 # --------------------------------------------------
 help:
-	@echo "📦 homelab Makefile"
+	@echo "📦 sphinx-cookiecutter Makefile"
 	@echo ""
 	@echo "Usage:"
 	@echo "  make venv                   Create virtual environment"

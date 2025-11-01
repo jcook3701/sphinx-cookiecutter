@@ -9,7 +9,7 @@ on:
     branches: [main, develop]
 
 jobs:
-  lint:
+  jinja2-lint:
     runs-on: ubuntu-latest
 
     steps:

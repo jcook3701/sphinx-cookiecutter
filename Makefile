@@ -83,15 +83,15 @@ all: install lint-check typecheck test build-docs
 # --------------------------------------------------
 venv:
 	$(AT)echo "🐍 Creating virtual environment..."
-	$(CREATE_VENV)
+	$(AT)$(CREATE_VENV)
 	$(AT)echo "✅ Virtual environment created."
 
 install: venv
 	$(AT)echo "📦 Installing project dependencies..."
-	$(PIP) install --upgrade pip
-	$(PIP) install -e $(DEPS)
-	$(PIP) install -e $(DEV_DEPS)
-	$(PIP) install -e $(DEV_DOCS)
+	$(AT)$(PIP) install --upgrade pip
+	$(AT)$(PIP) install -e $(DEPS)
+	$(AT)$(PIP) install -e $(DEV_DEPS)
+	$(AT)$(PIP) install -e $(DEV_DOCS)
 	$(AT)echo "✅ Dependencies installed."
 # --------------------------------------------------
 # Formating (ruff)
@@ -104,21 +104,21 @@ ruff-formatter:
 # --------------------------------------------------
 ruff-lint-check:
 	$(AT)echo "🔍 Running ruff linting..."
-	$(RUFF) check $(SRC_DIR) $(TESTS_DIR)
+	$(AT)$(RUFF) check $(SRC_DIR) $(TESTS_DIR)
 
 ruff-lint-fix:
 	$(AT)echo "🎨 Running ruff lint fixes..."
-	$(RUFF) check --show-files $(SRC_DIR) $(TESTS_DIR)
-	$(RUFF) check --fix $(SRC_DIR) $(TESTS_DIR)
+	$(AT)$(RUFF) check --show-files $(SRC_DIR) $(TESTS_DIR)
+	$(AT)$(RUFF) check --fix $(SRC_DIR) $(TESTS_DIR)
 
 yaml-lint-check:
 	$(AT)echo "🔍 Running yamllint..."
-	$(YAMLLINT) .
+	$(AT)$(YAMLLINT) .
 
 jinja2-lint-check:
 	$(AT)echo "🔍 jinja2 linting all template files under $(SRC_DIR)..."
-	jq '{cookiecutter: .}' cookiecutter.json > /tmp/_cc_wrapped.json
-	find $(SRC_DIR) -type f \
+	$(AT)jq '{cookiecutter: .}' cookiecutter.json > /tmp/_cc_wrapped.json
+	$(AT)find $(SRC_DIR) -type f \
 		! -path $(SRC_DIR)/.github/* \
 		! -name "*.md"   \
 		! -name "*.html" \
@@ -139,13 +139,13 @@ lint-check: ruff-lint-check yaml-lint-check jinja2-lint-check
 # --------------------------------------------------
 typecheck:
 	$(AT)echo "🧠 Checking types (MyPy)..."
-	$(MYPY) $(SRC_DIR) $(TESTS_DIR)
+	$(AT)$(MYPY) $(SRC_DIR) $(TESTS_DIR)
 # --------------------------------------------------
 # Testing (pytest)
 # --------------------------------------------------
 test:
 	$(AT)echo "🧪 Running tests with pytest..."
-	$(PYTEST) -v --maxfail=1 --disable-warnings $(TESTS_DIR)
+	$(AT)$(PYTEST) -v --maxfail=1 --disable-warnings $(TESTS_DIR)
 # --------------------------------------------------
 # Documentation (Sphinx + Jekyll)
 # --------------------------------------------------

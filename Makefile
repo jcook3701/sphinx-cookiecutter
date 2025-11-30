@@ -48,8 +48,6 @@ TESTS_DIR := $(PROJECT_ROOT)/tests
 DOCS_DIR := $(PROJECT_ROOT)/docs
 SPHINX_DIR := $(DOCS_DIR)/sphinx
 JEKYLL_DIR := $(DOCS_DIR)/jekyll
-
-SPHINX_BUILD_DIR := $(SPHINX_DIR)/_build/html
 JEKYLL_SPHINX_DIR := $(JEKYLL_DIR)/sphinx
 README_GEN_DIR := $(JEKYLL_DIR)/tmp_readme
 # --------------------------------------------------
@@ -147,15 +145,18 @@ format-fix: black-formatter-fix
 ruff-lint-check:
 	$(AT)echo "🔍 Running ruff linting..."
 	$(AT)$(RUFF) check $(SRC_DIR) $(TESTS_DIR)
+	$(AT)echo "✅ Finished linting check of Python code with Ruff!"
 
 ruff-lint-fix:
 	$(AT)echo "🎨 Running ruff lint fixes..."
 	$(AT)$(RUFF) check --show-files $(SRC_DIR) $(TESTS_DIR)
 	$(AT)$(RUFF) check --fix $(SRC_DIR) $(TESTS_DIR)
+	$(AT)echo "✅ Finished linting Python code with Ruff!"
 
 yaml-lint-check:
 	$(AT)echo "🔍 Running yamllint..."
 	$(AT)$(YAMLLINT) .
+	$(AT)echo "✅ Finished linting check of yaml files with yamllint!"
 
 jinja2-lint-check:
 	$(AT)echo "🔍 jinja2 linting all template files under $(SRC_DIR)..."
@@ -174,6 +175,7 @@ jinja2-lint-check:
 				$(JINJA) "$$f" /tmp/_cc_wrapped.json || exit 1; \
 			fi; \
 		done
+	$(AT)echo "✅ Finished linting check of jinja2 files with jinja2!"
 
 lint-check: ruff-lint-check yaml-lint-check jinja2-lint-check
 lint-fix: ruff-lint-fix
@@ -183,12 +185,14 @@ lint-fix: ruff-lint-fix
 typecheck:
 	$(AT)echo "🧠 Checking types (MyPy)..."
 	$(AT)$(MYPY) $(SRC_DIR) $(TESTS_DIR)
+	$(AT)echo "✅ Python typecheck complete!"
 # --------------------------------------------------
 # 🧪 Testing (pytest)
 # --------------------------------------------------
 test:
 	$(AT)echo "🧪 Running tests with pytest..."
 	$(AT)$(PYTEST) $(TESTS_DIR)
+	$(AT)echo "✅ Python tests complete!"
 # --------------------------------------------------
 # 📘 Documentation (Sphinx + Jekyll)
 # --------------------------------------------------

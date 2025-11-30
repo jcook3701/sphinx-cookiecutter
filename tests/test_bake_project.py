@@ -20,8 +20,9 @@ def test_bake_with_defaults(cookies: Cookies) -> None:
     # Optional sanity checks
     project_name = result.project_path.name
     assert project_name  # non-empty
-    index_file = result.project_path / "index.rst"
+    index_file = result.project_path / "api.rst"
     assert index_file.exists()
+
 
 def test_bake_with_custom_name(cookies: Cookies) -> None:
     """Ensure custom project_name works."""

@@ -13,9 +13,8 @@ Description: Configuration file for the Sphinx documentation builder.
 import os
 import sys
 
+from nutrimatic.build import add_yaml_front_matter, clean_module_docstring, skip_dupes
 from sphinx.application import Sphinx
-
-from ccutils.build import clean_module_docstring, add_yaml_front_matter, skip_dupes
 
 # -- Path setup --------------------------------------------------------------
 
@@ -26,7 +25,7 @@ sys.path.insert(0, os.path.abspath("../../src"))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "{{ cookiecutter.project_name }}"
-copyright = "2025, {{ cookiecutter.author }}"
+copyright = "2025, {{ cookiecutter.author }}"  # noqa: A001
 author = "{{ cookiecutter.author }}"
 release = "{{ cookiecutter.version }}"
 
@@ -35,7 +34,7 @@ html_context = {
 }
 
 # Main Sphinx Entry Point
-root_doc = 'api'
+root_doc = "api"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -44,10 +43,10 @@ root_doc = 'api'
 autodoc_mock_imports: list[str] = []
 
 extensions = [
-    "myst_parser",                # MyST for Markdown
-    "sphinx.ext.autodoc",         # autodoc for docstrings
-    "sphinx.ext.napoleon",        # Supports Google/NumPy style docstrings
-    "sphinx.ext.viewcode",        # Adds links to source code
+    "myst_parser",  # MyST for Markdown
+    "sphinx.ext.autodoc",  # autodoc for docstrings
+    "sphinx.ext.napoleon",  # Supports Google/NumPy style docstrings
+    "sphinx.ext.viewcode",  # Adds links to source code
     "sphinx.ext.autosummary",
     "sphinx_autodoc_typehints",
     "sphinx_markdown_builder",
@@ -61,9 +60,9 @@ myst_enable_extensions = [
 smartquotes = False
 numpydoc_class_members_toctree = False
 autosummary_generate = True
-autodoc_member_order = 'bysource'
+autodoc_member_order = "bysource"
 autosummary_generate = True
-autosummary_generate_dir = '_autosummary_generated'
+autosummary_generate_dir = "_autosummary_generated"
 
 # Source file suffixes: support both .rst and .md
 source_suffix = {

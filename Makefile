@@ -19,23 +19,43 @@ ifeq ($(V),0)
 else
     AT =
 endif
+# Detect if we are running inside GitHub Actions CI.
+# GitHub sets the environment variable GITHUB_ACTIONS=true in workflows.
+# We set CI=1 if running in GitHub Actions, otherwise CI=0 for local runs.
+ifeq ($(GITHUB_ACTIONS),true)
+CI := 1
+else
+CI := 0
+endif
+# Define a reusable CI-safe runner
+define run_ci_safe =
+( $1 || [ "$(CI)" != "1" ] )
+endef
+# --------------------------------------------------
+# ⚙️ Build Settings
+# --------------------------------------------------
+PACKAGE_NAME := "sphinx-cookiecutter"
+PACKAGE_AUTHOR := "Jared Cook"
+PACKAGE_VERSION := "0.1.0"
 # --------------------------------------------------
 # 📁 Build Directories
 # --------------------------------------------------
-SRC_DIR := "{{ cookiecutter.project_name }}"
-HOOKS_DIR := hooks
-TESTS_DIR := tests
-DOCS_DIR := docs
+PROJECT_ROOT := $(PWD)
+COOKIE_DIR := $(PROJECT_ROOT)/"{{ cookiecutter.project_name }}"
+SRC_DIR := $(COOKIE_DIR)
+HOOKS_DIR := $(PROJECT_ROOT)/hooks
+TESTS_DIR := $(PROJECT_ROOT)/tests
+DOCS_DIR := $(PROJECT_ROOT)/docs
 SPHINX_DIR := $(DOCS_DIR)/sphinx
 JEKYLL_DIR := $(DOCS_DIR)/jekyll
 
 SPHINX_BUILD_DIR := $(SPHINX_DIR)/_build/html
-JEKYLL_OUTPUT_DIR := $(JEKYLL_DIR)/sphinx
+JEKYLL_SPHINX_DIR := $(JEKYLL_DIR)/sphinx
 README_GEN_DIR := $(JEKYLL_DIR)/tmp_readme
 # --------------------------------------------------
 # 🐍 Python / Virtual Environment
 # --------------------------------------------------
-PYTHON := python3.11
+PYTHON_CMD := python3.11
 VENV_DIR := .venv
 # --------------------------------------------------
 # 🐍 Python Dependencies
@@ -46,30 +66,43 @@ DEV_DOCS := .[docs]
 # --------------------------------------------------
 # 🐍 Python Commands (venv, activate, pip)
 # --------------------------------------------------
-CREATE_VENV := $(PYTHON) -m venv $(VENV_DIR)
+CREATE_VENV := $(PYTHON_CMD) -m venv $(VENV_DIR)
 ACTIVATE := source $(VENV_DIR)/bin/activate
-PIP := $(ACTIVATE) && $(PYTHON) -m pip
+PYTHON := $(ACTIVATE) && $(PYTHON_CMD)
+PIP := $(PYTHON) -m pip
 # --------------------------------------------------
 # 🧠 Typing (mypy)
 # --------------------------------------------------
-MYPY := $(ACTIVATE) && $(PYTHON) -m mypy
+MYPY := $(PYTHON) -m mypy
+# --------------------------------------------------
+# 🎨 Formatting (black)
+# --------------------------------------------------
+BLACK := $(PYTHON) -m black
 # --------------------------------------------------
 # 🔍 Linting (ruff, yaml, jinja2)
 # --------------------------------------------------
-RUFF := $(ACTIVATE) && $(PYTHON) -m ruff
-YAMLLINT := $(ACTIVATE) && $(PYTHON) -m yamllint
+RUFF := $(PYTHON) -m ruff
+YAMLLINT := $(PYTHON) -m yamllint
 JINJA := $(ACTIVATE) && jinja2 --strict
 # --------------------------------------------------
 # 🧪 Testing (pytest)
 # --------------------------------------------------
-PYTEST := $(ACTIVATE) && $(PYTHON) -m pytest
+PYTEST := $(PYTHON) -m pytest
 # --------------------------------------------------
 # 📘 Documentation (Sphinx + Jekyll)
 # --------------------------------------------------
-SPHINX := $(ACTIVATE) && $(PYTHON) -m sphinx -b markdown
+SPHINX := $(PYTHON) -m sphinx -b markdown
 JEKYLL_BUILD := bundle exec jekyll build
 JEKYLL_CLEAN := bundle exec jekyll clean
 JEKYLL_SERVE := bundle exec jekyll serve
+# --------------------------------------------------
+# 🔖 Version Bumping (bumpy-my-version)
+# --------------------------------------------------
+BUMPVERSION := bump-my-version bump --verbose
+# Patch types:
+MAJOR := major
+MINOR := minor
+PATCH := patch
 # --------------------------------------------------
 .PHONY: all venv install ruff-lint-check ruff-lint-fix yaml-lint-check \
 	jinja2-lint-check lint-check typecheck test sphinx jekyll readme build-docs \
@@ -79,7 +112,7 @@ JEKYLL_SERVE := bundle exec jekyll serve
 # --------------------------------------------------
 all: install lint-check typecheck test build-docs
 # --------------------------------------------------
-# Virtual Environment Setup
+# 🐍 Virtual Environment Setup
 # --------------------------------------------------
 venv:
 	$(AT)echo "🐍 Creating virtual environment..."
@@ -94,13 +127,22 @@ install: venv
 	$(AT)$(PIP) install -e $(DEV_DOCS)
 	$(AT)echo "✅ Dependencies installed."
 # --------------------------------------------------
-# Formating (ruff)
+# 🎨 Formatting (black)
 # --------------------------------------------------
-ruff-formatter:
-	$(AT)echo "🎨 Running ruff formatter..."
-	$(AT)$(RUFF) format $(SRC_DIR) $(TEST_DIR)
+black-formatter-check:
+	$(AT)echo "🔍 Running black formatter style check..."
+	$(AT)$(call run_ci_safe, $(BLACK) --check $(SRC_DIR) $(TESTS_DIR))
+	$(AT)echo "✅ Finished formatting check of Python code with Black!"
+	
+black-formatter-fix:
+	$(AT)echo "🎨 Running black formatter fixes..."
+	$(AT)$(BLACK) $(SRC_DIR) $(TESTS_DIR)
+	$(AT)echo "✅ Finished formatting Python code with Black!"
+
+format-check: black-formatter-check
+format-fix: black-formatter-fix
 # --------------------------------------------------
-# Linting (ruff, yaml, jinja2)
+# 🔍 Linting (ruff, yaml, jinja2)
 # --------------------------------------------------
 ruff-lint-check:
 	$(AT)echo "🔍 Running ruff linting..."
@@ -134,24 +176,25 @@ jinja2-lint-check:
 		done
 
 lint-check: ruff-lint-check yaml-lint-check jinja2-lint-check
+lint-fix: ruff-lint-fix
 # --------------------------------------------------
-# Typechecking (MyPy)
+# 🧠 Typechecking (MyPy)
 # --------------------------------------------------
 typecheck:
 	$(AT)echo "🧠 Checking types (MyPy)..."
 	$(AT)$(MYPY) $(SRC_DIR) $(TESTS_DIR)
 # --------------------------------------------------
-# Testing (pytest)
+# 🧪 Testing (pytest)
 # --------------------------------------------------
 test:
 	$(AT)echo "🧪 Running tests with pytest..."
-	$(AT)$(PYTEST) -v --maxfail=1 --disable-warnings $(TESTS_DIR)
+	$(AT)$(PYTEST) $(TESTS_DIR)
 # --------------------------------------------------
-# Documentation (Sphinx + Jekyll)
+# 📘 Documentation (Sphinx + Jekyll)
 # --------------------------------------------------
 sphinx:
 	$(AT)echo "🔨 Building Sphinx documentation 📘 as Markdown..."
-	$(AT)$(SPHINX) $(SPHINX_DIR) $(JEKYLL_OUTPUT_DIR)
+	$(AT)$(SPHINX) $(SPHINX_DIR) $(JEKYLL_SPHINX_DIR)
 	$(AT)echo "✅ Sphinx Markdown build complete!"
 
 jekyll:
@@ -159,28 +202,7 @@ jekyll:
 	$(AT)cd $(JEKYLL_DIR) && $(JEKYLL_BUILD)
 	$(AT)echo "✅ Full documentation build complete!"
 
-readme:
-	$(AT)echo "🔨 Building ./README.md 📘 with Jekyll..."
-	$(AT)mkdir -p $(README_GEN_DIR)
-	$(AT)cp $(JEKYLL_DIR)/_config.yml $(README_GEN_DIR)/_config.yml
-	$(AT)cp $(JEKYLL_DIR)/Gemfile $(README_GEN_DIR)/Gemfile
-	$(AT)printf "%s\n" "---" \
-		"layout: raw" \
-		"permalink: /README.md" \
-		"---" > $(README_GEN_DIR)/README.md
-	$(AT)printf '%s\n' '<!--' \
-		'  Auto-generated file. Do not edit directly.' \
-		'  Edit $(JEKYLL_DIR)/README.md instead.' \
-		'  Run ```make readme``` to regenrate this file' \
-		'-->' >> $(README_GEN_DIR)/README.md
-	$(AT)cat $(JEKYLL_DIR)/README.md >> $(README_GEN_DIR)/README.md
-	$(AT)cd $(README_GEN_DIR) && $(JEKYLL_BUILD)
-	$(AT)cp $(README_GEN_DIR)/_site/README.md ./README.md
-	$(AT)echo "🧹 Clening README.md build artifacts..."
-	$(AT)rm -r $(README_GEN_DIR)
-	$(AT)echo "✅ README.md auto generation complete!"
-
-build-docs: sphinx jekyll # TODO: readme
+build-docs: sphinx jekyll
 
 jekyll-serve: docs
 	$(AT)echo "🚀 Starting Jekyll development server..."
@@ -188,11 +210,19 @@ jekyll-serve: docs
 
 run-docs: jekyll-serve
 # --------------------------------------------------
-# Clean artifacts
+# 🔖 Version Bumping (bumpy-my-version)
+# --------------------------------------------------
+# TODO: Also create a git tag of current version.
+bump-version-patch:
+	$(AT)echo "🔖 Updating $(PACKAGE_NAME) version from $(VERSION)..."
+	$(AT)$(BUMPVERSION) $(PATCH)
+	$(AT)echo "✅ $(PACKAGE_NAME) version update complete!"
+# --------------------------------------------------
+# 🧹 Clean artifacts
 # --------------------------------------------------
 clean:
 	$(AT)echo "🧹 Clening build artifacts..."
-	$(AT)rm -rf $(SPHINX_DIR)/_build $(JEKYLL_OUTPUT_DIR)
+	$(AT)rm -rf $(SPHINX_DIR)/_build $(JEKYLL_SPHINX_DIR)
 	$(AT)cd $(JEKYLL_DIR) && $(JEKYLL_CLEAN)
 	$(AT)rm -rf build dist *.egg-info
 	$(AT)find $(HOOKS_DIR) $(TESTS_DIR) -name "__pycache__" -type d -exec rm -rf {} +
@@ -207,7 +237,10 @@ help:
 	$(AT)echo "Usage:"
 	$(AT)echo "  make venv                   Create virtual environment"
 	$(AT)echo "  make install                Install dependencies"
-	$(AT)echo "  make ruff-formatter         Run Ruff Formatter"
+	$(AT)echo "  make black-formatter-check  Run Black formatter check"
+	$(AT)echo "  make black-formatter-fix    Run Black formatter"
+	$(AT)echo "  make format-check           Run all project formatter checks (black)"
+	$(AT)echo "  make format-fix             Run all project formatter autofixes (black)"
 	$(AT)echo "  make ruff-lint-check        Run Ruff linter"
 	$(AT)echo "  make ruff-lint-fix          Auto-fix lint issues with python ruff"
 	$(AT)echo "  make yaml-lint-check        Run YAML linter"

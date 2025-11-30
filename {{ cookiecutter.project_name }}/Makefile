@@ -1,6 +1,36 @@
-# Makefile for Sphinx documentation
-#
+# Makefile
+# =========================================
+# Project: Sphinx documentation for {{ cookiecutter.project_name }}
+# =========================================
 
+# --------------------------------------------------
+# ⚙️ Environment Settings
+# --------------------------------------------------
+SHELL := /bin/bash
+.SHELLFLAGS := -O globstar -c
+# If V is set to '1' or 'y' on the command line,
+# AT will be empty (verbose).  Otherwise, AT will
+# contain '@' (quiet by default).  The '?' is a
+# conditional assignment operator: it only sets V
+# if it hasn't been set externally.
+V ?= 0
+ifeq ($(V),0)
+    AT = @
+else
+    AT =
+endif
+# Detect if we are running inside GitHub Actions CI.
+# GitHub sets the environment variable GITHUB_ACTIONS=true in workflows.
+# We set CI=1 if running in GitHub Actions, otherwise CI=0 for local runs.
+ifeq ($(GITHUB_ACTIONS),true)
+CI := 1
+else
+CI := 0
+endif
+# Define a reusable CI-safe runner
+define run_ci_safe =
+( $1 || [ "$(CI)" != "1" ] )
+endef
 # --------------------------------------------------
 # ⚙️ Sphinx Build Settings
 # --------------------------------------------------
@@ -23,35 +53,35 @@ markdown-gen: markdown
 
 ifeq ($(PUBLISHDIR),)
 publish-markdown:
-	@echo "⚠️  Warning: Skipping publish-markdown target because PUBLISHDIR is empty."
+	$(AT)echo "⚠️  Warning: Skipping publish-markdown target because PUBLISHDIR is empty."
 else
 publish-markdown:
-	@echo "🧹 Cleaning Previous published Sphinx artifacts..."
-	@rm -rf $(PUBLISHDIR)
-	@echo "✅ Finished cleaning old Sphinx artifacts."
-	@echo "🚀 Publishing sphinx markdown documentation to $(PUBLISHDIR)..."
-	@mkdir -p $(PUBLISHDIR)
-	@mv $(BUILDDIR)/markdown/* $(PUBLISHDIR)
-	@echo "✅ Finished published markdown documentation to $(PUBLISHDIR)."
+	$(AT)echo "🧹 Cleaning Previous published Sphinx artifacts..."
+	$(AT)rm -rf $(PUBLISHDIR)
+	$(AT)echo "✅ Finished cleaning old Sphinx artifacts."
+	$(AT)echo "🚀 Publishing sphinx markdown documentation to $(PUBLISHDIR)..."
+	$(AT)mkdir -p $(PUBLISHDIR)
+	$(AT)mv $(BUILDDIR)/markdown/* $(PUBLISHDIR)
+	$(AT)echo "✅ Finished published markdown documentation to $(PUBLISHDIR)."
 endif
 # --------------------------------------------------
 # Help
 # --------------------------------------------------
 help:
-	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	$(AT)$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 # --------------------------------------------------
 # Custom clean target: removes build artifacts AND generated stub files
 # --------------------------------------------------
 clean:
-	@echo "🧹 Cleaning build artifacts and autosummary stubs..."
-	@rm -rf "$(BUILDDIR)" $(STUBDIRS)
-	@echo "✅ Clean complete."
+	$(AT)echo "🧹 Cleaning build artifacts and autosummary stubs..."
+	$(AT)rm -rf "$(BUILDDIR)" $(STUBDIRS)
+	$(AT)echo "✅ Clean complete."
 # --------------------------------------------------
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 # --------------------------------------------------
 %: Makefile
-	@echo "🏃 Running Sphinx Documentation Generator..."
-	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	@echo "✅ Sphinx run complete."
+	$(AT)echo "🏃 Running Sphinx Documentation Generator..."
+	$(AT)$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	$(AT)echo "✅ Sphinx run complete."
 # --------------------------------------------------

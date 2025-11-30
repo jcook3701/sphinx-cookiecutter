@@ -11,12 +11,7 @@ Description: Configuration file for the Sphinx documentation builder.
 """
 
 import os
-import re
 import sys
-from pathlib import Path
-from typing import Any
-
-from sphinx.application import Sphinx
 
 from nutrimatic.build import add_yaml_front_matter, clean_module_docstring, skip_dupes
 from sphinx.application import Sphinx

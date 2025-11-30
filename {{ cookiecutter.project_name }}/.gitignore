@@ -1,28 +1,22 @@
 # .gitignore
 # =========================================
-# Project: sphinx-cookiecutter
+# Project: {{ cookiecutter.project_name }}
 # =========================================
+api/
 
+_build/
 # =========================================
-# text editor ignores
+# text editor ignores #
 # =========================================
 .vscode/
 # =========================================
-# Python project ignores
+# Project file ignores #
 # =========================================
-.venv/
-.mypy_cache/
-.pytest_cache/
-.ruff_cache/
-*.egg-info/
-__pycache__/
-dist/
+api/
+_build/html/
 # =========================================
-# tmp ignores
+## Default Ignores ##
 # =========================================
-hooks/
-# =========================================
-## Default Ignores
 # =========================================
 # Backup Extensions #
 # =========================================

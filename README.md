@@ -32,7 +32,7 @@ $ cookiecutter git@github.com:jcook3701/sphinx-cookiecutter.git --checkout devel
 
 ## Advance Examples:
 __Note:__ The real intention of this project is to call it as a hook within other cookiecutter projects as shown below.  
-__Explanation:__ [ansible-galaxy-cookiecutter](https://github.com/jcook3701/ansible-galaxy-cookiecutter) template utilizes [nutri-matic](https://github.com/jcook3701/nutri-matic) hooks to pull both this documentation template along with [sphinx-cookiecutter](https://github.com/jcook3701/sphinx-cookiecutter) template into generated project ```$(PROJECT_ROOT)/docs/```.  
+__Explanation:__ [ansible-galaxy-cookiecutter](https://github.com/jcook3701/ansible-galaxy-cookiecutter) template utilizes [nutri-matic](https://github.com/jcook3701/nutri-matic) hooks to pull both this documentation template along with [github-docs-cookiecutter](https://github.com/jcook3701/github-docs-cookiecutter) template into generated project ```$(PROJECT_ROOT)/docs/```.  
 
 Utilization of [nutri-matic](https://github.com/jcook3701/nutri-matic) is the optimal way of integrating this template in projects.  
 

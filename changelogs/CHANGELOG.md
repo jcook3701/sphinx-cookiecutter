@@ -39,6 +39,7 @@
 ### 🐛 Fixed
 
 - Fixes to makefile
+- *(hooks)* Removed hooks from .gitignore which should fix all current project errors. Also make major updates to project README.md
 
 ### 🚀 Added
 

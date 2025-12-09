@@ -6,15 +6,15 @@ __Version:__ 0.1.0
 ## Overview
 Template cookiecutter project for python3 sphinx documentation.  
 
-![black-format](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/black-format.yml/badge.svg)
-![dependency-check](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/dependency-check.yml/badge.svg)
-![jinja2-lint](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/jinja2-lint.yml/badge.svg)
-![ruff-lint](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/ruff-lint.yml/badge.svg)
-![security-audit](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/security-audit.yml/badge.svg)
-![spellcheck](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/spellcheck.yml/badge.svg)
-![tests](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/tests.yml/badge.svg)
-![typecheck](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/typecheck.yml/badge.svg)
-![yaml-lint](https://github.com/jcook3701/github-docs-cookiecutter/actions/workflows/yaml-lint.yml/badge.svg)
+![black-format](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/black-format.yml/badge.svg)
+![dependency-check](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/dependency-check.yml/badge.svg)
+![jinja2-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/jinja2-lint.yml/badge.svg)
+![ruff-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/ruff-lint.yml/badge.svg)
+![security-audit](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/security-audit.yml/badge.svg)
+![spellcheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/spellcheck.yml/badge.svg)
+![tests](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/tests.yml/badge.svg)
+![typecheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/typecheck.yml/badge.svg)
+![yaml-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/yaml-lint.yml/badge.svg)
 
 ***
 

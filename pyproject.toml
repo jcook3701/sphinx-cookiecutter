@@ -87,7 +87,7 @@ commit = false
 [[tool.bumpversion.files]]
 filename = "Makefile"
 [[tool.bumpversion.files]]
-filename = "README"
+filename = "README.md"
 # ====================================
 # Codespell Configuration:
 # ====================================

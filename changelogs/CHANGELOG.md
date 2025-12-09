@@ -40,6 +40,10 @@
 
 - Fixes to makefile
 
+### 🚀 Added
+
+- *(build)* Updated project to include pre-commit, and changelog features.  Also major updates to ci/cd.
+
 ### 🧪 Tests
 
 - Testing and general updates.

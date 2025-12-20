@@ -7,6 +7,7 @@
 ### ⚙️  Miscellaneous
 
 - *(version)* Minor version update.
+- *(update)* Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

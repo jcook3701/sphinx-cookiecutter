@@ -127,7 +127,7 @@ JEKYLL_SERVE := bundle exec jekyll serve
 # --------------------------------------------------
 # 🔖 Version Bumping (bump-my-version)
 # --------------------------------------------------
-BUMPVERSION := bump-my-version bump --verbose
+BUMPVERSION := $(ACTIVATE) && bump-my-version bump --verbose
 # Patch types:
 MAJOR := major
 MINOR := minor
@@ -136,12 +136,13 @@ PATCH := patch
 # 📜 Changelog generation (git-clif)
 # --------------------------------------------------
 GITCLIFF := git cliff
-GITCLIFF_CHANGELOG:= $(GITCLIFF) --output $(CHANGELOG_FILE)
+GITCLIFF_CHANGELOG := $(GITCLIFF) --output $(CHANGELOG_FILE)
 GITCLIFF_CHANGELOG_RELEASE := $(GITCLIFF) --unreleased --tag $(RELEASE) --output $(CHANGELOG_RELEASE_FILE)
 # --------------------------------------------------
 # 🐙 Github Tools (git)
 # --------------------------------------------------
 GIT := git
+GITHUB := gh
 # --------------------------------------------------
 # 🚨 Pre-Commit (pre-commit)
 # --------------------------------------------------
@@ -325,7 +326,8 @@ git-release:
 	$(AT)echo "📦 $(PACKAGE_NAME) Release Tag - $(RELEASE)! 🎉"
 	$(AT)$(GIT) tag -a $(RELEASE) -m "Release $(RELEASE)"
 	$(AT)$(GIT) push origin $(RELEASE)
-	$(AT)echo "✅ Finished uploading Release - $(RELEASE)!"
+	$(AT)$(GITHUB) release create $(RELEASE) --title "$(PACKAGE_NAME) $(RELEASE)" --generate-notes
+	$(AT)echo "✅ Finished uploading Release - $(RELEASE)! 🎉"
 # --------------------------------------------------
 # 📢 Release
 # --------------------------------------------------

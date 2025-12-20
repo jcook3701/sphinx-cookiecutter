@@ -1,0 +1,46 @@
+{
+    "__copyright": "Copyright (c) 2025 Jared Cook",
+    "__project_name": "sphinx-cookiecutter",
+    "__py_package_name": "sphinx-cookiecutter",
+    "__python_target_version": "py311",
+    "__title": "sphinx-cookiecutter",
+    "_checkout": "main",
+    "_copy_without_render": [
+        ".github/workflows/*",
+        ".pre-commit-config.yaml",
+        ".yamllint",
+        "cliff.toml"
+    ],
+    "_hooks": {
+        "post_gen_make_cmds": {
+            "build-docs": false,
+            "changelog": false,
+            "git-init": false,
+            "install": false,
+            "pre-commit-init": false
+        }
+    },
+    "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+    },
+    "_output_dir": "/home/jcook/Documents/build/tmp/cookiecutter/cookies/test-env",
+    "_repo_dir": "/home/jcook/.cookiecutters/cookiecutter-cookiecutter",
+    "_template": "git@github.com:jcook3701/cookiecutter-cookiecutter.git",
+    "add_github_docs": true,
+    "add_sphinx_docs": true,
+    "author": "Jared Cook",
+    "buymeacoffee_username": "jcook3701",
+    "description": "Typescript cookiecutter project.",
+    "email": "jcook3701+github@gmail.com",
+    "ga_tracking": "G-C7PWLWSHB9",
+    "github_username": "jcook3701",
+    "license": "GPL-3.0",
+    "linkedin_usercode": "jared-cook-b3585a114",
+    "project_name": "sphinx-cookiecutter",
+    "project_slug": "sphinx-cookiecutter",
+    "python_version": "3.11",
+    "theme": "pmarsceill/just-the-docs",
+    "twitter_username": "",
+    "version": "0.1.0"
+}

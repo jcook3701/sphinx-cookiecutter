@@ -13,6 +13,10 @@
 
 - *(template)* Reformatted template to use project_slug vs package_name.
 - *(template)* Updated project slug.
+
+### 🚀 Added
+
+- *(template)* Added template generated settings under docs as standard.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

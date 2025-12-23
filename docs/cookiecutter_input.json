@@ -11,6 +11,14 @@
         ".yamllint",
         "cliff.toml"
     ],
+    "_python_keywords": [
+        "docs",
+        "sphinx",
+        "python3",
+        "cookiecutter",
+        "template",
+        "automation"
+    ],
     "_hooks": {
         "post_gen_make_cmds": {
             "build-docs": false,

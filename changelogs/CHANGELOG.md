@@ -19,6 +19,10 @@
 * feat(template): added template generated settings under docs as standard.
 
 * fix(tests): Fixed output of project path to the new expected output.
+
+### 🐛 Fixed
+
+- *(template)* Fixed cookiecutter_intput.json use correct data for this project.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

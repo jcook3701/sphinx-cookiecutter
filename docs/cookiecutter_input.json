@@ -20,6 +20,7 @@
             "pre-commit-init": false
         }
     },
+    "_template_type": "cookiecutter",
     "_jinja2_env_vars": {
         "lstrip_blocks": true,
         "trim_blocks": true

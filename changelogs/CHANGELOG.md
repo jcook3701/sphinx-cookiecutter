@@ -6,17 +6,19 @@
 
 ### ⚙️  Miscellaneous
 
-- *(version)* Minor version update.
-- *(update)* Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
+- Feat 001 (#5)
 
-### 🐛 Fixed
+* chore(version): minor version update.
 
-- *(template)* Reformatted template to use project_slug vs package_name.
-- *(template)* Updated project slug.
+* chore(update): Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
 
-### 🚀 Added
+* fix(template): Reformatted template to use project_slug vs package_name.
 
-- *(template)* Added template generated settings under docs as standard.
+* fix(template): updated project slug.
+
+* feat(template): added template generated settings under docs as standard.
+
+* fix(tests): Fixed output of project path to the new expected output.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

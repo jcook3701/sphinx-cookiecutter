@@ -20,7 +20,6 @@
             "pre-commit-init": false
         }
     },
-    "_template_type": "cookiecutter",
     "_jinja2_env_vars": {
         "lstrip_blocks": true,
         "trim_blocks": true
@@ -41,6 +40,7 @@
     "project_name": "sphinx-cookiecutter",
     "project_slug": "sphinx-cookiecutter",
     "python_version": "3.11",
+    "template_type": "cookiecutter",
     "theme": "pmarsceill/just-the-docs",
     "twitter_username": "",
     "version": "0.1.0"

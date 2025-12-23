@@ -1,6 +1,6 @@
 {
   "project_name": "github-docs-cookiecutter",
-  "package_name": "{{ cookiecutter.project_name|lower|replace('-', '_') }}",
+  "project_slug": "{{ cookiecutter.project_name | slugify }}",
   "author": "Jared Cook",
   "version": "0.1.0",
   "description": "Cookiecutter for python3 sphinx.",

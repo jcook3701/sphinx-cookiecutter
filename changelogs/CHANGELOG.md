@@ -6,11 +6,23 @@
 
 ### ⚙️  Miscellaneous
 
+- *(version)* Minor version update.
+- *(update)* Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
+
+### 🐛 Fixed
+
+- *(template)* Reformatted template to use project_slug vs package_name.
+- *(template)* Updated project slug.
+
+### 🚀 Added
+
+- *(template)* Added template generated settings under docs as standard.
+## [0.1.0] - 2025-12-09
+
+### ⚙️  Miscellaneous
+
 - Need to test but this should mostly work.
 - Updates to ci/cd.
-- Ci/cd updates.
-- Typecheck fixes.
-- Updates for makefile and sphinx conf file.
 - Develop (#1)
 
 * ci/cd updates.
@@ -18,9 +30,6 @@
 * testing and general updates.
 
 * typecheck fixes.
-- Merge branch 'main' into develop
-- Updates to sphinx docs.
-- Makefile updates
 - Develop (#2)
 
 * ci/cd updates.
@@ -32,20 +41,57 @@
 * updates for makefile and sphinx conf file.
 
 * fixes to makefile
-- Merge branch 'main' into develop
-- Makefile updates
-- Lint fixes
+- Develop (#3)
 
-### 🐛 Fixed
+* ci/cd updates.
 
-- Fixes to makefile
-- *(hooks)* Removed hooks from .gitignore which should fix all current project errors. Also make major updates to project README.md
-- *(docs)* Readme badges we're using the wrong project name.
+* testing and general updates.
 
-### 🚀 Added
+* typecheck fixes.
 
-- *(build)* Updated project to include pre-commit, and changelog features.  Also major updates to ci/cd.
+* updates for makefile and sphinx conf file.
 
-### 🧪 Tests
+* fixes to makefile
 
-- Testing and general updates.
+* updates to sphinx docs.
+
+* Makefile updates
+
+* makefile updates
+
+* lint fixes
+
+---------
+
+Co-authored-by: jcook3701 <jcook3701@gmail.com>
+- Develop (#4)
+
+* ci/cd updates.
+
+* testing and general updates.
+
+* typecheck fixes.
+
+* updates for makefile and sphinx conf file.
+
+* fixes to makefile
+
+* updates to sphinx docs.
+
+* Makefile updates
+
+* makefile updates
+
+* lint fixes
+
+* feat(build): Updated project to include pre-commit, and changelog features.  Also major updates to ci/cd.
+
+* fix(hooks): removed hooks from .gitignore which should fix all current project errors. Also make major updates to project README.md
+
+* fix(docs): readme badges we're using the wrong project name.
+
+* fix(readme): correction to Advance examples.
+
+---------
+
+Co-authored-by: jcook3701 <jcook3701@gmail.com>

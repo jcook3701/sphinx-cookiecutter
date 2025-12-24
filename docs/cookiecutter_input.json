@@ -1,9 +1,17 @@
 {
     "__copyright": "Copyright (c) 2025 Jared Cook",
-    "__project_name": "sphinx-cookiecutter",
-    "__py_package_name": "sphinx-cookiecutter",
-    "__python_target_version": "py311",
-    "__title": "sphinx-cookiecutter",
+    "__python": {
+        "keywords": [
+            "docs",
+            "sphinx",
+            "python3",
+            "cookiecutter",
+            "template",
+            "automation"
+        ],
+        "project_name": "sphinx-cookiecutter",
+        "target_version": "py311"
+    },
     "_checkout": "main",
     "_copy_without_render": [
         ".github/workflows/*",
@@ -11,13 +19,9 @@
         ".yamllint",
         "cliff.toml"
     ],
-    "_python_keywords": [
-        "docs",
-        "sphinx",
-        "python3",
-        "cookiecutter",
-        "template",
-        "automation"
+    "_extensions": [
+        "jinja2.ext.do",
+        "jinja2.ext.loopcontrols"
     ],
     "_hooks": {
         "post_gen_make_cmds": {
@@ -36,7 +40,7 @@
     "_repo_dir": "/home/jcook/.cookiecutters/cookiecutter-cookiecutter",
     "_template": "git@github.com:jcook3701/cookiecutter-cookiecutter.git",
     "add_github_docs": true,
-    "add_sphinx_docs": true,
+    "add_sphinx_docs": false,
     "author": "Jared Cook",
     "buymeacoffee_username": "jcook3701",
     "description": "sphinx cookiecutter template generation.",

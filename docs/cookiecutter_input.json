@@ -13,12 +13,7 @@
         "target_version": "py311"
     },
     "_checkout": "feat-002",
-    "_copy_without_render": [
-        ".github/workflows/*",
-        ".pre-commit-config.yaml",
-        ".yamllint",
-        "cliff.toml"
-    ],
+    "_copy_without_render": [],
     "_extensions": [
         "jinja2.ext.do",
         "jinja2.ext.loopcontrols"

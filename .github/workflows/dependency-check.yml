@@ -1,11 +1,11 @@
-# tests
+# dependency-check
 ---
-name: Cookiecutter Template Tests
+name: Cookiecutter Template Dependency Check
 
 on: [push, pull_request]
 
 jobs:
-  tests:
+  dependency-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pytest
+      - name: Install deptry
         run: |
           make install
 
-      - name: Run tests
+      - name: Run Dependency Check
         run: |
-            make test
+          make dependency-check

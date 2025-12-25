@@ -1,11 +1,11 @@
-# tests
+# typecheck
 ---
-name: Cookiecutter Template Tests
+name: Cookiecutter Template Typecheck
 
 on: [push, pull_request]
 
 jobs:
-  tests:
+  typecheck:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pytest
+      - name: Install mypy
         run: |
           make install
 
-      - name: Run tests
+      - name: Run typecheck
         run: |
-            make test
+          make typecheck

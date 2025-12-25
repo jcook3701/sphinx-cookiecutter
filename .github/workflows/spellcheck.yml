@@ -1,11 +1,11 @@
-# tests
+# spellcheck
 ---
-name: Cookiecutter Template Tests
+name: Cookiecutter Template Spellcheck
 
 on: [push, pull_request]
 
 jobs:
-  tests:
+  spellcheck:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,10 +17,10 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pytest
+      - name: Install codespell
         run: |
           make install
 
-      - name: Run tests
+      - name: Run Spellcheck
         run: |
-            make test
+          make spellcheck

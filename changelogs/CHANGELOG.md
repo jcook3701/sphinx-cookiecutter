@@ -6,17 +6,40 @@
 
 ### ⚙️  Miscellaneous
 
-- *(version)* Minor version update.
-- *(update)* Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
+- Feat 001 (#5)
+
+* chore(version): minor version update.
+
+* chore(update): Trying to prep to use cookiecutter_project_upgrader to upgrade template project from cookiecutter-cookiecutter.
+
+* fix(template): Reformatted template to use project_slug vs package_name.
+
+* fix(template): updated project slug.
+
+* feat(template): added template generated settings under docs as standard.
+
+* fix(tests): Fixed output of project path to the new expected output.
+- Update template
+- Update template
+- Update template
+- Update template
+- Update template
+- Merge branch 'cookiecutter-template' into feat-002
+
+First project upgrade from cookiecutter-cookiecutter!
+- Update template
+- Merge branch 'cookiecutter-template' into feat-002
 
 ### 🐛 Fixed
 
-- *(template)* Reformatted template to use project_slug vs package_name.
-- *(template)* Updated project slug.
-
-### 🚀 Added
-
-- *(template)* Added template generated settings under docs as standard.
+- *(template)* Fixed cookiecutter_intput.json use correct data for this project.
+- *(template)* Fix for gitignore.
+- *(template)* Fix for gitignore.
+- *(template)* Fix for pyproject.toml.
+- *(template)* Fixes for cookiecutter_input.json to account for changes to cookiecutter-cookiecutter.
+- *(update)* Fixing update file.
+- *(docs)* Updates to readme badges!
+- *(docs)* Minor readme update.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

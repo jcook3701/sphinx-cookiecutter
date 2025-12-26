@@ -19,6 +19,14 @@
 * feat(template): added template generated settings under docs as standard.
 
 * fix(tests): Fixed output of project path to the new expected output.
+- Update template
+- Update template
+- Update template
+- Update template
+- Update template
+- Merge branch 'cookiecutter-template' into feat-002
+
+First project upgrade from cookiecutter-cookiecutter!
 
 ### 🐛 Fixed
 

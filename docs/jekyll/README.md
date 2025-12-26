@@ -6,16 +6,13 @@ __Version:__ {{ site.version }}
 ## Overview
 {{ site.description }}  
 
-![black-format](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/black-format.yml/badge.svg)
 ![dependency-check](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/dependency-check.yml/badge.svg)
-![jinja2-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/jinja2-lint.yml/badge.svg)
-![ruff-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/ruff-lint.yml/badge.svg)
+![format-check](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/format-check.yml/badge.svg)
+![lint-check](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/lint-check.yml/badge.svg)
 ![security-audit](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/security-audit.yml/badge.svg)
 ![spellcheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/spellcheck.yml/badge.svg)
 ![tests](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/tests.yml/badge.svg)
 ![typecheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/typecheck.yml/badge.svg)
-![yaml-lint](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/yaml-lint.yml/badge.svg)
-
 ***
 
 ## Usage Examples:

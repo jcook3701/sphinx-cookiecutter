@@ -27,6 +27,7 @@
 - *(template)* Fix for gitignore.
 - *(template)* Fix for pyproject.toml.
 - *(template)* Fixes for cookiecutter_input.json to account for changes to cookiecutter-cookiecutter.
+- *(update)* Fixing update file.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

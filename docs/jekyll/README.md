@@ -13,6 +13,7 @@ __Version:__ {{ site.version }}
 ![spellcheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/spellcheck.yml/badge.svg)
 ![tests](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/tests.yml/badge.svg)
 ![typecheck](https://github.com/jcook3701/sphinx-cookiecutter/actions/workflows/typecheck.yml/badge.svg)
+
 ***
 
 ## Usage Examples:

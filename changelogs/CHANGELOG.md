@@ -36,6 +36,7 @@ First project upgrade from cookiecutter-cookiecutter!
 - *(template)* Fix for pyproject.toml.
 - *(template)* Fixes for cookiecutter_input.json to account for changes to cookiecutter-cookiecutter.
 - *(update)* Fixing update file.
+- *(docs)* Updates to readme badges!
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

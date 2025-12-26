@@ -37,6 +37,7 @@ First project upgrade from cookiecutter-cookiecutter!
 - *(template)* Fixes for cookiecutter_input.json to account for changes to cookiecutter-cookiecutter.
 - *(update)* Fixing update file.
 - *(docs)* Updates to readme badges!
+- *(docs)* Minor readme update.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

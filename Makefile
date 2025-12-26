@@ -171,7 +171,7 @@ MYPY := $(PYTHON) -m mypy
 # --------------------------------------------------
 PYTEST := $(PYTHON) -m pytest
 # --------------------------------------------------
-# 📚 Documentation (Jekyll)
+# 📚 Documentation (Jekyll + nutrimatic)
 # --------------------------------------------------
 JEKYLL_BUILD := bundle exec jekyll build --quiet
 JEKYLL_CLEAN := bundle exec jekyll clean
@@ -234,11 +234,11 @@ TOML_FILE_LIST := 	( \
 	black-formatter-fix render-cookiecutter jinja2-lint-check ruff-lint-check \
 	ruff-lint-fix toml-lint-check yaml-lint-check format-check \
 	format-fix lint-check lint-fix spellcheck \
-	typecheck test jekyll jekyll-serve \
-	run-docs build-docs bump-version-patch changelog \
-	git-release pre-commit pre-release release \
-	clean-docs clean-build clean version \
-	help
+	typecheck test jekyll readme \
+	jekyll-serve run-docs build-docs bump-version-patch \
+	changelog git-release pre-commit pre-release \
+	release clean-docs clean-build clean \
+	version help
 # --------------------------------------------------
 # Default: run lint, typecheck, spellcheck, tests, & docs
 # --------------------------------------------------
@@ -397,7 +397,7 @@ test:
 	$(AT)$(call run_ci_safe, $(PYTEST))
 	$(AT)echo "✅ Python tests complete!"
 # --------------------------------------------------
-# 📚 Documentation (Jekyll)
+# 📚 Documentation (Jekyll + nutrimatic)
 # --------------------------------------------------
 jekyll:
 	$(MAKE) -C $(JEKYLL_DIR) all;
@@ -405,7 +405,14 @@ jekyll:
 jekyll-serve: docs
 	$(MAKE) -C $(JEKYLL_DIR) run;
 
-build-docs: jekyll
+readme:
+	$(AT)$(NUTRIMATIC) build readme $(JEKYLL_DIR) $(README_FILE) \
+		--tmp-dir $(README_GEN_DIR) --jekyll-cmd '$(JEKYLL_BUILD)'
+
+# Note: Run as part of pre-commit.  No manual run needed.
+build-docs: jekyll readme
+	$(AT)$(GIT) add $(DOCS_DIR)
+	$(AT)$(GIT) add $(README_FILE)
 
 run-docs: jekyll-serve
 # --------------------------------------------------

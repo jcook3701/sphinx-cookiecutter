@@ -392,10 +392,9 @@ typecheck:
 # --------------------------------------------------
 # 🧪 Testing (pytest)
 # --------------------------------------------------
-# NOTE: This is using TEST_DIR and not TESTS_DIR at the moment.
 test:
 	$(AT)echo "🧪 Running tests with pytest..."
-	$(AT)$(call run_ci_safe, $(PYTEST) $(TEST))
+	$(AT)$(call run_ci_safe, $(PYTEST))
 	$(AT)echo "✅ Python tests complete!"
 # --------------------------------------------------
 # 📚 Documentation (Jekyll)
@@ -422,7 +421,6 @@ bump-version-patch:
 # --------------------------------------------------
 # Note: Run as part of pre-commit.  No manual run needed.
 changelog:
-	$(AT) echo $(GITCLIFF_CHANGELOG)
 	$(AT)echo "📜 $(PROJECT_NAME) Changelog Generation..."
 	$(AT)$(GITCLIFF_CHANGELOG)
 	$(AT)$(GITCLIFF_CHANGELOG_RELEASE)

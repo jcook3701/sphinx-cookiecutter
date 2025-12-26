@@ -27,6 +27,8 @@
 - Merge branch 'cookiecutter-template' into feat-002
 
 First project upgrade from cookiecutter-cookiecutter!
+- Update template
+- Merge branch 'cookiecutter-template' into feat-002
 
 ### 🐛 Fixed
 

@@ -57,6 +57,10 @@ Feat 002 (#6)
 - Merge pull request #9 from jcook3701/develop
 
 Update template (#8)
+
+### 🐛 Fixed
+
+- *(template)* Fix to show that this is supposed to be a sub-template.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

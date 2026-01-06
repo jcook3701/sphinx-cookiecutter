@@ -34,7 +34,6 @@ def main() -> None:
     if os.getenv("CI"):
         print("⚙️  Detected CI environment — skipping GitHub Docs generation.")
         return
-
     # Access cookiecutter context safely
     context = json.loads("""{{ cookiecutter | jsonify }}""")
     generate_docs_templates(context)

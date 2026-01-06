@@ -53,6 +53,16 @@
 - Merge pull request #7 from jcook3701/develop
 
 Feat 002 (#6)
+- Update template (#8)
+- Merge pull request #9 from jcook3701/develop
+
+Update template (#8)
+- Update template
+- Merge branch 'cookiecutter-template' into feat-004
+
+### 🐛 Fixed
+
+- *(template)* Fix to show that this is supposed to be a sub-template.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

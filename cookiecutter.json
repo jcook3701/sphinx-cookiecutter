@@ -4,8 +4,17 @@
   "author": "Jared Cook",
   "version": "0.1.0",
   "description": "Cookiecutter for python3 sphinx.",
+  "_is_sub_template": true,
   "_copy_without_render": [
     "README.md",
     "_includes/*"
-  ]
+  ],
+  "_extensions": [
+      "jinja2.ext.do",
+      "jinja2.ext.loopcontrols"
+  ],
+  "_jinja2_env_vars": {
+      "lstrip_blocks": true,
+      "trim_blocks": true
+  }
 }

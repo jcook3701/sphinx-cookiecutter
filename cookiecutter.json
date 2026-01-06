@@ -8,5 +8,13 @@
   "_copy_without_render": [
     "README.md",
     "_includes/*"
-  ]
+  ],
+  "_extensions": [
+      "jinja2.ext.do",
+      "jinja2.ext.loopcontrols"
+  ],
+  "_jinja2_env_vars": {
+      "lstrip_blocks": true,
+      "trim_blocks": true
+  }
 }

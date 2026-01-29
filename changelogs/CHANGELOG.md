@@ -57,12 +57,16 @@ Feat 002 (#6)
 - Merge pull request #9 from jcook3701/develop
 
 Update template (#8)
-- Update template
-- Merge branch 'cookiecutter-template' into feat-004
+- Feat 004 (#10)
 
-### 🐛 Fixed
+* fix(template): Fix to show that this is supposed to be a sub-template.
 
-- *(template)* Fix to show that this is supposed to be a sub-template.
+* Update template
+
+* fix(template): Updates to template cookiecutter.json file to add jinja extensions.
+- Merge pull request #11 from jcook3701/develop
+
+Feat 004 (#10)
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

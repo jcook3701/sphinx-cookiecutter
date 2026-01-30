@@ -5,9 +5,10 @@
 -->
 <h1 id="sphinx-cookiecutter">sphinx-cookiecutter</h1>
 
+<p><a href="LICENSE.md"><img src="https://img.shields.io/github/license/jcook3701/sphinx-cookiecutter" alt="License" /></a></p>
+
 <p><strong>Author:</strong> Jared Cook<br />
-<strong>Version:</strong> 0.1.0<br />
-<strong>License:</strong> <a href="LICENSE.md"><img src="https://img.shields.io/github/license/jcook3701/sphinx-cookiecutter" alt="License" /></a></p>
+<strong>Version:</strong> 0.1.0</p>
 
 <h2 id="overview">Overview</h2>
 <p>sphinx cookiecutter template generation.</p>

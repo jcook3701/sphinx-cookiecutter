@@ -85,6 +85,10 @@ Feat 005 (#12)
 ### 🐛 Fixed
 
 - *(docs)* Temporary hack.
+
+### 🚀 Added
+
+- *(docs)* Readme update.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

@@ -90,6 +90,10 @@ Feat 005 (#12)
 - Merge pull request #15 from jcook3701/develop
 
 Feat 006 (#14)
+
+### 🐛 Fixed
+
+- *(docs)* Readme link fixes.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

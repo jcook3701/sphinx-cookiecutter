@@ -11,6 +11,7 @@
 <strong>Version:</strong> 0.1.0</p>
 
 <h2 id="overview">Overview</h2>
+
 <p>sphinx cookiecutter template generation.</p>
 
 <hr />
@@ -54,14 +55,17 @@
 <hr />
 
 <h2 id="getting-started">Getting Started</h2>
+
 <ul>
   <li><a href="https://jcook3701.github.io/sphinx-cookiecutter/manual/introduction/installation-guide">Installation guide</a></li>
 </ul>
 
 <h2 id="documentation">Documentation</h2>
+
 <p>The sphinx-cookiecutter documentation is available at <a href="https://jcook3701.github.io/sphinx-cookiecutter">docs</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
+
 <p>If you’re interested in contributing to the sphinx-cookiecutter project:</p>
 <ul>
   <li>Start by reading the <a href="https://jcook3701.github.io/sphinx-cookiecutter/manual/developer-resources/contribute">contributing guide</a>.</li>
@@ -81,7 +85,7 @@
 
 <p>Copyright (c) 2025-2026, Jared Cook</p>
 
-<p>This project is licensed under the <strong>AGPL-3.0-or-later License</strong>.<br />
-See the <a href="https://github.com/jcook3701/.github/blob/main/LICENSE.md">LICENSE</a> file for the full license text.</p>
+<p>This project is licensed under the <strong>AGPL-3.0-or-later License</strong>.
+See the <a href="https://github.com/jcook3701/sphinx-cookiecutter/blob/master/LICENSE.md">LICENSE</a> file for the full license text.</p>
 
-<p>SPDX-License-Identifier: AGPL-3.0-or-later License</p>
+<p>SPDX-License-Identifier: AGPL-3.0-or-later</p>

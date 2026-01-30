@@ -6,6 +6,7 @@
 **Version:** {{ site.version }}  
 
 ## Overview
+
 {{ site.description }}  
 
 ***
@@ -45,12 +46,15 @@ Utilization of [nutri-matic](https://github.com/jcook3701/nutri-matic) is the op
 ***
 
 ## Getting Started
+
 * [Installation guide]({{ site.github_io_url }}/manual/introduction/installation-guide)  
 
 ## Documentation
+
 The {{ site.title }} documentation is available at [docs]({{ site.github_io_url }}).  
 
 ## Contributing
+
 If you're interested in contributing to the {{ site.title }} project:  
 * Start by reading the [contributing guide]({{ site.github_io_url }}/manual/developer-resources/contribute).  
 * Learn how to setup your local environment, in our [developer guide]({{ site.github_io_url }}/manual/contribute/developer-guide).  
@@ -64,9 +68,9 @@ If you're interested in contributing to the {{ site.title }} project:
 
 ## License
 
-Copyright (c) 2025-2026, Jared Cook  
+{{ site.copyright }}  
 
-This project is licensed under the **AGPL-3.0-or-later License**.  
-See the [LICENSE](https://github.com/jcook3701/.github/blob/main/LICENSE.md) file for the full license text.  
+This project is licensed under the **{{ site.license }} License**.
+See the [LICENSE]({{ site.repo_blob }}/LICENSE.md) file for the full license text.  
 
-SPDX-License-Identifier: AGPL-3.0-or-later License  
+SPDX-License-Identifier: {{ site.license }}  

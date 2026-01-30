@@ -67,11 +67,16 @@ Update template (#8)
 - Merge pull request #11 from jcook3701/develop
 
 Feat 004 (#10)
-- *(update)* Preparation for project update with .
+- Feat 005 (#12)
 
-### 🚀 Added
+* feat(updater): Preparation for update from cookiecutter-cookiecutter project using .
 
-- *(updater)* Preparation for update from cookiecutter-cookiecutter project using .
+* chore(update): preparation for project update with .
+
+* chore(update): Update template with ```cookiecutter_project_upgrader``` from cookiecutter-cookiecutter parent.
+- Merge pull request #13 from jcook3701/develop
+
+Feat 005 (#12)
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

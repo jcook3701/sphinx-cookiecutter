@@ -77,6 +77,10 @@ Feat 004 (#10)
 - Merge pull request #13 from jcook3701/develop
 
 Feat 005 (#12)
+
+### 🐛 Fixed
+
+- *(docs)* Temporary hack.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

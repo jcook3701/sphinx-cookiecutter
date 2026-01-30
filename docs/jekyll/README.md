@@ -47,6 +47,7 @@ Utilization of [nutri-matic](https://github.com/jcook3701/nutri-matic) is the op
 
 ## Getting Started
 
+* [Requirements]({{ site.github_io_url }}/manual/setup-guide/requirements)
 * [Installation guide]({{ site.github_io_url }}/manual/introduction/installation-guide)  
 
 ## Documentation
@@ -70,7 +71,7 @@ If you're interested in contributing to the {{ site.title }} project:
 
 {{ site.copyright }}  
 
-This project is licensed under the **{{ site.license }} License**.
+This project is licensed under the **{{ site.license }} License**.  
 See the [LICENSE]({{ site.repo_blob }}/LICENSE.md) file for the full license text.  
 
 SPDX-License-Identifier: {{ site.license }}  

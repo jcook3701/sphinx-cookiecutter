@@ -96,6 +96,7 @@ Feat 006 (#14)
 - *(docs)* Readme link fixes.
 - *(docs)* Final readme touchups.
 - *(docs)* Authors notes.
+- *(docs)* Readme license section fix.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

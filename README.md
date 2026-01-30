@@ -76,7 +76,7 @@
 <h2 id="authors-notes">Authors Notes</h2>
 
 <ol>
-  <li>This code currently works with cookiecutter 2.6 from PyPi repositories.</li>
+  <li>This code currently works with cookiecutter (2.6+) from PyPi repositories.</li>
 </ol>
 
 <hr />

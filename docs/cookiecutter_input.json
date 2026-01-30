@@ -1,5 +1,4 @@
 {
-    "__copyright": "Copyright (c) 2025 Jared Cook",
     "__python": {
         "keywords": [
             "docs",
@@ -58,7 +57,7 @@
     "publication_year": "2025",
     "python_version": "3.11",
     "repo_url": "https://github.com/jcook3701/sphinx-cookiecutter",
-    "template_type": "cookiecutter",
+    "template_type": "documentation",
     "theme": "just-the-docs/just-the-docs@v0.11.0",
     "timezone": "America/Los_Angeles",
     "twitter_username": "",

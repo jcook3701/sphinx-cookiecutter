@@ -67,6 +67,10 @@ Update template (#8)
 - Merge pull request #11 from jcook3701/develop
 
 Feat 004 (#10)
+
+### 🚀 Added
+
+- *(updater)* Preparation for update from cookiecutter-cookiecutter project using .
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

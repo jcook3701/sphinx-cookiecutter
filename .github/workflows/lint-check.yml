@@ -1,4 +1,4 @@
-# tests.yml for sphinx-cookiecutter
+# lint-check.yml for sphinx-cookiecutter
 #
 # SPDX-FileCopyrightText: Copyright (c) 2025-2026, Jared Cook
 # SPDX-License-Identifier: AGPL-3.0-or-later
@@ -16,12 +16,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ---
-name: Cookiecutter Template Tests
+name: Cookiecutter Template Lint Check
 
 on: [push, pull_request]
 
 jobs:
-  tests:
+  jinja2-lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,23 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install pytest
+      - name: Install Linting Tools
         run: |
           make python-install
 
-      - name: Run tests
+      - name: Render Cookiecutter Template
         run: |
-            make test
+          make render-cookiecutter
+
+      - name: Lint Jinja templates
+        run: |
+          make djlint-lint-check
+      - name: Run Ruff Lint Check
+        run: |
+          make ruff-lint-check
+      - name: Run Toml Lint Check
+        run: |
+          make toml-lint-check
+      - name: Run YAML Lint Check
+        run: |
+          make yaml-lint-check

@@ -64,9 +64,9 @@
 <h2 id="contributing">Contributing</h2>
 <p>If you’re interested in contributing to the sphinx-cookiecutter project:</p>
 <ul>
-  <li>Start by reading the <a href="https://jcook3701.github.io/sphinx-cookiecutter/developer-resources/contribute">contributing guide</a>.</li>
-  <li>Learn how to setup your local environment, in our <a href="https://jcook3701.github.io/sphinx-cookiecutter/contribute/developer-guide">developer guide</a>.</li>
-  <li>Look through our <a href="https://jcook3701.github.io/sphinx-cookiecutter/contribute/style-guides/index">style guide</a>.</li>
+  <li>Start by reading the <a href="https://jcook3701.github.io/sphinx-cookiecutter/manual/developer-resources/contribute">contributing guide</a>.</li>
+  <li>Learn how to setup your local environment, in our <a href="https://jcook3701.github.io/sphinx-cookiecutter/manual/contribute/developer-guide">developer guide</a>.</li>
+  <li>Look through our <a href="https://jcook3701.github.io/sphinx-cookiecutter/manual/contribute/style-guides/index">style guide</a>.</li>
 </ul>
 
 <h2 id="authors-notes">Authors Notes</h2>

@@ -97,6 +97,10 @@ Feat 006 (#14)
 - *(docs)* Final readme touchups.
 - *(docs)* Authors notes.
 - *(docs)* Readme license section fix.
+
+### 🚀 Added
+
+- *(upgrader)* Update to upgrader configuration.
 ## [0.1.0] - 2025-12-09
 
 ### ⚙️  Miscellaneous

@@ -67,6 +67,7 @@ Update template (#8)
 - Merge pull request #11 from jcook3701/develop
 
 Feat 004 (#10)
+- *(update)* Preparation for project update with .
 
 ### 🚀 Added
 
